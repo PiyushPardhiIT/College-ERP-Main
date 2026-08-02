@@ -9,5 +9,8 @@ spring:
       hibernate:
         ddl-auto: update
       show-sql: true
+      jwt:
+        secret: "replace-this-with-a-long-random-secret-string-at-least-32-chars"
+        expiration: 86400000 # 24 hours in ms
   server:
     port: 8080
