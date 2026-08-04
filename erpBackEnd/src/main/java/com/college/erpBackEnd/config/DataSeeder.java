@@ -28,7 +28,7 @@ public class DataSeeder implements CommandLineRunner {
     public void run(String... args) {
         createRoleIfAbsent(RoleName.ADMIN.name());
         createRoleIfAbsent(RoleName.STUDENT.name());
-        createRoleIfAbsent(RoleName.FUCULTY.name());
+        createRoleIfAbsent(RoleName.FACULTY.name());
 
         if (!userRepository.existsByUsername("admin")) {
             Role adminRole = roleRepository.findByName(RoleName.ADMIN.name())

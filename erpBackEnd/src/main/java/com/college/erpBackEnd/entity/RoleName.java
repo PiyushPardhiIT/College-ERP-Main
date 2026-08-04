@@ -2,6 +2,6 @@ package com.college.erpBackEnd.entity;
 
 public enum RoleName {
     ADMIN,
-    FUCULTY,
+    FACULTY,
     STUDENT
 }
