@@ -18,4 +18,15 @@ public class Course {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getCode() { return code; }
+    public void setCode(String code) { this.code = code; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public int getCredits() { return credits; }
+    public void setCredits(int credits) { this.credits = credits; }
+    public Department getDepartment() { return department; }
+    public void setDepartment(Department department) { this.department = department; }
 }

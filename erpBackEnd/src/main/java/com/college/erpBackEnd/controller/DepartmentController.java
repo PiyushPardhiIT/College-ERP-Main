@@ -33,4 +33,14 @@ public class DepartmentController {
     public void delete(@PathVariable Long id) {
         departmentRepository.deleteById(id);
     }
+
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public Department update(@PathVariable Long id, @RequestBody Department updated) {
+        Department department = departmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Department not found: " + id));
+        department.setName(updated.getName());
+        department.setCode(updated.getCode());
+        return departmentRepository.save(department);
+    }
 }
