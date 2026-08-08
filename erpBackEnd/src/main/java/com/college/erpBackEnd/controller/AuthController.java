@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -29,7 +32,9 @@ public class AuthController {
         try {
             return ResponseEntity.ok(authService.login(request));
         } catch (AuthenticationException ex) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+            Map<String, String> body = new HashMap<>();
+            body.put("error", "Invalid username or password");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(body);
         }
     }
 }
